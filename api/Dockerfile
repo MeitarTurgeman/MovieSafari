@@ -36,7 +36,6 @@ RUN npm install && npm update && npm cache clean --force
 
 # copy all sources in the container (exclusions in .dockerignore file)
 COPY --chown=nodejs:nodejs . .
-RUN npm run build
 
 # build/pack binaries from sources
 
@@ -54,6 +53,6 @@ EXPOSE 3000
 HEALTHCHECK --interval=30s --timeout=10s --start-period=5s CMD npm run healthcheck-manual
 
 # ENTRYPOINT [ "node" ]
-CMD [ "node", "dist/main.js" ]
+CMD [ "npm", "start" ]
 
 # end.

@@ -157,7 +157,7 @@ export const tmdbApi = process.env.TMDB_KEY && process.env.TMDB_KEY;
     process.exit(1);
   }
 })();
-// export default async function handler(req: any, res: any) {
-//   await fastify.ready();
-//   fastify.server.emit('request', req, res);
-// }
+export default async function handler(req: any, res: any) {
+  await fastify.ready();
+  fastify.server.emit('request', req, res);
+}
